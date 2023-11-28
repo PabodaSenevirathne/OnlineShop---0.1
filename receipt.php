@@ -38,6 +38,9 @@ if ($total < 10) {
 
 <head>
     <!-- Head content for receipt.php -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reciept.css">
     <title>Receipt</title>
 </head>
 
@@ -61,7 +64,7 @@ if ($total < 10) {
 
         foreach ($cart as $product) {
             $tax = $product['price'] * $taxRate;
-            echo "<li>{$product['name']} - Quantity: {$product['quantity']} - Price: \${$product['price']} - Tax: \${$tax}</li>";
+            echo "<li>{$product['name']} - Quantity: {$product['quantity']} - Unit Price: \${$product['price']} - Tax: \${$tax}</li>";
             $total += ($product['quantity'] * $product['price']) + $tax;
         }
         ?>
@@ -69,7 +72,9 @@ if ($total < 10) {
 
     <!-- Display total -->
     <p>Total: $<?php echo number_format($total, 2); ?></p>
-
+    <div class="button-container">
+        <button id="okButton" onclick="Ok()">OK</button>
+    </div>
     <!-- Rest of your HTML content -->
 
 </body>
