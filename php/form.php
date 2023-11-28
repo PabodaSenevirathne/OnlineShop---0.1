@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($_POST["cname"])) {
-    $cnameValidationError = "cname";
+    $cnameValidationError = "cname is required";
   } else {
     $cname = test_input($_POST["cname"]);
   }
