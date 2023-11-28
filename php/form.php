@@ -1,6 +1,6 @@
 <?php
 session_start();
-var_dump("lllll");
+//var_dump("lllll");
 // define variables and set to empty values
 $nameValidationError = $phoneValidationError = $postcodeValidationError = $addressValidationError = $cityValidationError = $provinceValidationError = $emailValidationError = $cnameValidationError = $ccnumValidationError = $expmonthValidationError = $expyearValidationError = $passwordValidationError = $confirmPasswordValidationError = "";
 $name = $phone = $postcode = $address = $city = $province = $email = $cname = $ccnum = $expmonth = $expyear = $password = $confirmPassword = "";
@@ -146,10 +146,12 @@ function test_input($data)
 if (empty($nameValidationError) && empty($phoneValidationError) && empty($postcodeValidationError) && empty($addressValidationError) && empty($cityValidationError) && empty($provinceValidationError) && empty($emailValidationError) && empty($cnameValidationError) && empty($ccnumValidationError) && empty($expmonthValidationError) && empty($expyearValidationError) && empty($passwordValidationError) && empty($confirmPasswordValidationError)) {
   // If all validations pass, generate the receipt
   // Access cart details from the session
-  echo "<script>
+  
+}
+
+
+echo "<script>
   function openPopupWindow() {
       window.open('receipt.php', '_blank', 'width=600,height=600');
   }
 </script>";
-  exit(); // Script ends here
-}

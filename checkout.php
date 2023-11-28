@@ -154,7 +154,7 @@
             </div>
         </div>
         <br><br>
-        <input type="submit" name="submit" value="Submit">
+        <button type="submit" id="checkoutButton" name="submit" value="Submit">Proceed to Checkout</button>
         <button id="printReceipt" onclick="openPopupWindow()">Print</button> <br><br>
 
     </form>

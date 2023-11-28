@@ -1,39 +1,69 @@
-
 // Function to update cart and navigate to checkout
 function updateCartAndNavigateToCheckout() {
-    sessionStorage.clear();
-
-    // Optional: You can also remove a specific item from session storage by specifying its key
-    // sessionStorage.removeItem('yourKey');
-
-    // Add any other logic you want to perform after clearing session storage
-    console.log("Session storage cleared!");
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Create a relative URL
+    const baseUrl = window.location.href.split('/').slice(0, -1).join('/');
+    const relativeUrl = 'shopping-cart.php';
+    const apiUrl = `${baseUrl}/${relativeUrl}`;
 
     // Send the cart data to the server
     const xhr = new XMLHttpRequest();
-   // xhr.open("POST", "http://localhost/Projects/Assignment3/shopping-cart.php", true);
-   xhr.open("POST", "../shopping-cart.php", true);
-
-
-
-
+    xhr.open("POST", apiUrl, true);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {
         console.log(`ReadyState: ${xhr.readyState}, Status: ${xhr.status}`);
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log("Cart updated successfully!");
-            // Redirect to the checkout page
-           window.location.href = "checkout.php";
-        }else{
-            console.error("Error updating cart:", xhr.status, xhr.statusText);
-
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console.log("Cart updated successfully!");
+                // Redirect to the checkout page
+                window.location.href = "checkout.php";
+            } else {
+                console.error("Error updating cart:", xhr.status, xhr.statusText);
+            }
         }
     };
 
     xhr.send(JSON.stringify({ cart: cart }));
 }
+
+
+// // Function to update cart and navigate to checkout
+// function updateCartAndNavigateToCheckout() {
+//     //sessionStorage.clear();
+
+//     // Optional: You can also remove a specific item from session storage by specifying its key
+//     // sessionStorage.removeItem('yourKey');
+
+//     // Add any other logic you want to perform after clearing session storage
+//     //console.log("Session storage cleared!");
+//     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//     // Send the cart data to the server
+//     const xhr = new XMLHttpRequest();
+//    xhr.open("POST", "http://localhost/Projects/Assignment3/shopping-cart.php", true);
+//   // xhr.open("POST", "../shopping-cart.php", true);
+
+
+
+
+//     xhr.setRequestHeader("Content-Type", "application/json");
+
+//     xhr.onreadystatechange = function () {
+//         console.log(`ReadyState: ${xhr.readyState}, Status: ${xhr.status}`);
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+//             console.log("Cart updated successfully!");
+//             // Redirect to the checkout page
+//            window.location.href = "checkout.php";
+//         }else{
+//             console.error("Error updating cart:", xhr.status, xhr.statusText);
+
+//         }
+//     };
+
+//     xhr.send(JSON.stringify({ cart: cart }));
+// }
 
 
 //update cart
