@@ -11,8 +11,6 @@ if (!isset($_SESSION['formData'])) {
 // Access form data from the session
 $formData = $_SESSION['formData'];
 
-
-// Access cart details from the session
 // Access cart details from the session
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
@@ -46,7 +44,7 @@ if ($total < 10) {
 </head>
 
 <body>
-    <!-- Receipt content -->
+    <!-- user details -->
     <h2>Receipt</h2>
     <p>Name: <?php echo $formData['name']; ?></p>
     <p>Phone: <?php echo $formData['phone']; ?></p>
@@ -55,7 +53,6 @@ if ($total < 10) {
     <p>City: <?php echo $formData['city']; ?></p>
     <p>Province: <?php echo $formData['province']; ?></p>
     <p>Email: <?php echo $formData['email']; ?></p>
-    <!-- Add other form fields as needed -->
     <!-- Cart details -->
     <h2>Cart Details</h2>
     <ul>
@@ -76,7 +73,6 @@ if ($total < 10) {
     <div class="button-container">
         <button id="okButton" onclick="Ok()">OK</button>
     </div>
-    <!-- Rest of your HTML content -->
 
 </body>
 

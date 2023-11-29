@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     // If the request method is not POST, send an error response
     http_response_code(400);
-    echo "Invalid request.";
+   // echo "Invalid request.";
 }
 ?>
 

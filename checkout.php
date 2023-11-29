@@ -103,12 +103,12 @@
         <div class="row">
             <div class="col-50">
                 <label for="cname">Name on Card</label>
-                <input type="text" id="cname" name="cardname" placeholder="John More Doe"><br>
+                <input type="text" id="cname" name="cardname"><br>
                 <span class="error"><?php echo $cnameValidationError; ?></span><br><br>
             </div>
             <div class="col-50">
                 <label for="ccnum">Credit Card Number</label>
-                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"><br>
+                <input type="text" id="ccnum" name="ccnum" placeholder="1111-2222-3333-4444"><br>
                 <span class="error"><?php echo $ccnumValidationError; ?></span><br><br>
             </div>
         </div>
