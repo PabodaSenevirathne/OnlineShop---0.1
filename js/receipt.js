@@ -1,5 +1,5 @@
+// Function to clear session data using AJAX request to the server
 function Ok() {
-    // Make an AJAX request to the server to clear session data
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "php/clear-session.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -11,6 +11,6 @@ function Ok() {
             window.close();
         }
     };
-    // Send a simple POST request to trigger the server-side code
+    // POST request to trigger the server-side code
     xhr.send("okClicked=true");
 }

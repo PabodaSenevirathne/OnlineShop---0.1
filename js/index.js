@@ -16,6 +16,8 @@ function addToCart(name, price) {
     alert("Item has been added to your cart.");
 
 }
+
+//Slideshow
 document.addEventListener("DOMContentLoaded", function () {
     let slideIndex = 0;
     showSlides();

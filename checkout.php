@@ -103,7 +103,7 @@
         <div class="row">
             <div class="col-50">
                 <label for="cname">Name on Card</label>
-                <input type="text" id="cname" name="cardname"><br>
+                <input type="text" id="cname" name="cname"><br>
                 <span class="error"><?php echo $cnameValidationError; ?></span><br><br>
             </div>
             <div class="col-50">

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// define variables
+// Define variables in the form
 $nameValidationError = $phoneValidationError = $postcodeValidationError = $addressValidationError = $cityValidationError = $provinceValidationError = $emailValidationError = $cnameValidationError = $ccnumValidationError = $expmonthValidationError = $expyearValidationError = $passwordValidationError = $confirmPasswordValidationError = "";
 $name = $phone = $postcode = $address = $city = $province = $email = $cname = $ccnum = $expmonth = $expyear = $password = $confirmPassword = "";
 
@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-//Only if the all the validations pass,generate the receipt
+// Only if the all the validations pass, generate the receipt
   if (empty($nameValidationError) && empty($phoneValidationError) && empty($postcodeValidationError) && empty($addressValidationError) && empty($cityValidationError) && empty($provinceValidationError) && empty($emailValidationError) && empty($cnameValidationError) && empty($ccnumValidationError) && empty($expmonthValidationError) && empty($expyearValidationError) && empty($passwordValidationError) && empty($confirmPasswordValidationError)) {
    
     // Access details from the session
@@ -135,6 +135,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       'city' => $city,
       'province' => $province,
       'email' => $email,
+      'cname' => $cname,
+      'ccnum' => $ccnum,
+      'expmonth' => $expmonth,
+      'expyear' => $expyear,
+      'cvv' => $cvv,
     ];
 
     // Print the receipt

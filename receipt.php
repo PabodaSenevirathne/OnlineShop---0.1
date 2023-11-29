@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Check if form data is present in the session
+// Check whether the form data is present in the session
 if (!isset($_SESSION['formData'])) {
     // Redirect to the form page if data is not available
     header("Location: form.php");
@@ -14,18 +14,16 @@ $formData = $_SESSION['formData'];
 // Access cart details from the session
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
-// Clear the session data
 unset($_SESSION['formData']);
 
-// Calculate the total purchase amount
+// Calculate the total amount
 $total = 0;
 foreach ($cart as $product) {
     $total += ($product['quantity'] * $product['price']);
 }
 
-// Check if the total purchase amount is $10 or more
+// Check whether the total amount is $10 or more
 if ($total < 10) {
-    // Display an error and redirect to the form page
     echo "Error: Minimum purchase should be $10 or more.";
     exit();
 }
@@ -35,7 +33,6 @@ if ($total < 10) {
 <html lang="en">
 
 <head>
-    <!-- Head content for receipt.php -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reciept.css">
@@ -53,13 +50,19 @@ if ($total < 10) {
     <p>City: <?php echo $formData['city']; ?></p>
     <p>Province: <?php echo $formData['province']; ?></p>
     <p>Email: <?php echo $formData['email']; ?></p>
+    <p>Name On Card: <?php echo $formData['cname']; ?></p>
+    <p>Credit Card Number : <?php echo $formData['ccnum']; ?></p>
+    <p>Exp Month: <?php echo $formData['expmonth']; ?></p>
+    <p>Exp Year: <?php echo $formData['expyear']; ?></p>
+    <p>CVV: <?php echo $formData['CVV']; ?></p>
     <!-- Cart details -->
     <h2>Cart Details</h2>
     <ul>
     <?php
         $total = 0;
-        $taxRate = getSalesTaxRate($formData['province']); // Function to get sales tax rate based on province
-
+        $taxRate = getSalesTaxRate($formData['province']); 
+        
+        // Function to get tax rate based on the province
         foreach ($cart as $product) {
             $tax = $product['price'] * $taxRate;
             echo "<li>{$product['name']} - Quantity: {$product['quantity']} - Unit Price: \${$product['price']} - Tax: \${$tax}</li>";
@@ -81,7 +84,7 @@ if ($total < 10) {
 <?php
 function getSalesTaxRate($province)
 {
-    // Replace with actual tax rates for each province
+    // Tax rates for each province
     $taxRates = [
         'Alberta' => 0.05,
         'British Columbia' => 0.07,
