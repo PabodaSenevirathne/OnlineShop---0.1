@@ -54,7 +54,6 @@ if ($total < 10) {
     <p>Credit Card Number : <?php echo $formData['ccnum']; ?></p>
     <p>Exp Month: <?php echo $formData['expmonth']; ?></p>
     <p>Exp Year: <?php echo $formData['expyear']; ?></p>
-    <p>CVV: <?php echo $formData['CVV']; ?></p>
     <!-- Cart details -->
     <h2>Cart Details</h2>
     <ul>

@@ -66,11 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 
-  // if (empty($_POST["cname"])) {
-  //   $cnameValidationError = "name is required";
-  // } else {
-  //   $cname = test_input($_POST["cname"]);
-  // }
+  // Get credit card name
+  if (empty($_POST["cname"])) {
+    $cnameValidationError = "Credit card name is required";
+  } else {
+    $cname = test_input($_POST["cname"]);
+  }
 
   // Validate credit card number
   if (empty($_POST["ccnum"])) {
@@ -139,13 +140,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       'ccnum' => $ccnum,
       'expmonth' => $expmonth,
       'expyear' => $expyear,
-      'cvv' => $cvv,
     ];
 
     // Print the receipt
     echo "<script>
       function openPopupWindow() {
-      window.open('receipt.php', '_blank', 'width=600,height=600');
+      window.open('receipt.php', '_blank', 'width=600, height=700');
     }
     </script>";
   }
